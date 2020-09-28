@@ -15,7 +15,6 @@ disqus: 'demowebsite'
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-feed
 
 # Pagination
 paginate: 10

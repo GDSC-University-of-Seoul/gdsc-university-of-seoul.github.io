@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Powerful things you can do with the Markdown editor"
-author: 김수빈
+author: subin1
 tags: [Jekyll, tutorial ]
 image: assets/images/16.jpg
 ---

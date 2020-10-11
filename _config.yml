@@ -5,7 +5,6 @@ description: "DSC UOS 블로그입니다."
 baseurl:
 include: ["_pages"]
 permalink: /:title/
-github: 'https://github.com/'
 
 logo: 'assets/images/dsclogo.png'
 google_analytics: 'UA-46278016-1'

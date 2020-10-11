@@ -8,7 +8,7 @@ permalink: /:title/
 
 logo: 'assets/images/dsclogo.png'
 google_analytics: 'UA-179269963-1'
-disqus: 'demowebsite'
+disqus: 'dscuos'
 
 # Plugins
 plugins:

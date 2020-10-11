@@ -8,8 +8,8 @@ permalink: /:title/
 
 logo: 'assets/images/dsclogo.png'
 full_logo: 'assets/images/dsc_full_logo.png'
-google_analytics: 'UA-46278016-1'
-disqus: 'demowebsite'
+google_analytics: 'UA-179269963-1'
+disqus: 'dscuos'
 
 # Plugins
 plugins:

@@ -132,6 +132,7 @@ fall-intro team의 첫 만남은 구글 meet을 통해 이루어졌는데요
    
 
    
+   
 
    
 
@@ -162,9 +163,11 @@ fall-intro team의 첫 만남은 구글 meet을 통해 이루어졌는데요
 
    
 
+
    
 
    ### assignment-3
+
 
    
 
@@ -189,8 +192,6 @@ fall-intro team의 첫 만남은 구글 meet을 통해 이루어졌는데요
    
 
    ------
-
-   
 
 
    10월 목표였던 assignment-5까지 완료하기에 도달하지 못 해서 정말 ~~분하고~~ 아쉽습니다....

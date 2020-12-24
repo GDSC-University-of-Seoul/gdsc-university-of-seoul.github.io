@@ -12,7 +12,7 @@ CartoonGAN
 
     ⇒ 이를 조정하기 위해 (1) Canny edge detector (2) dilate the edge regions (3) Gaussian smoothing 방법 3가지를 적용한 edge-smoothed image 생성 
 
-![Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled.png](Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled.png)
+![Capture](../assets/images/post-image-data-augmentation/paper0.png)
 
 - 그러나 Black-box model을 사용하여 data를 학습시키기 때문에 하학습이 중구난방이고 quality가 낮은 Output image를 생성할 가능성이 높음.
 
@@ -38,19 +38,22 @@ CartoonGAN
 - 3개의 채널을 가진 입력이미지를 1개의 채널로 변환하는 과정.
 - 색상과 밝기가 제거되고 상대적인 픽셀 강도가 보존됩니다.
 
-![Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%201.png](Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%201.png)
+![Capture](../assets/images/post-image-data-augmentation/paper1.png)
+
 
 **3. Proposed Approach** 
 
 - 아래 그림을 보면, image 특징을 Decompose하는 3가지 방법이 어떻게 진행되는지 알 수 있음.
 
-![Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%202.png](Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%202.png)
+![Capture](../assets/images/post-image-data-augmentation/paper2.png)
+
 
 - 이미지가 Surface Representation, Structure Representation, Texture Representation으로 분해되고 해당 Representation을 추출하기 위해 세 개의 독립 모듈을 도입함.
 - GAN framework는 Generator G와 Discriminator인 D_s, D_t로 구성됨.
 - D_s는 Surface Representation을 기준으로, 생성된 image와 만화를 구별하고 D_t는 Texture Representation 으로 생성된 image와 만화를 구별함.
 
-![Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%203.png](Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%203.png)
+![Capture](../assets/images/post-image-data-augmentation/paper3.png)
+
 
 3-1) Learning From the Surface Representation
 
@@ -58,7 +61,8 @@ CartoonGAN
 - F_dgf는 이미지 I를 입력으로 받아서 texture 와 디테일한 부분을 제거한 surface를 추출함.
 - D_s는 모델이 생성해낸 이미지와 기준이되는 만화 이미지가 비슷한 surface를 갖는지 판단하고 generator G가 surface representation를 잘 추출할 수 있도록 가이드를 제공함.
 
-![Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%204.png](Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%204.png)
+![Capture](../assets/images/post-image-data-augmentation/paper4.png)
+
 
 - I_c는 reference cartoon images를, I_p는 input photo를 의미함.
 
@@ -69,28 +73,34 @@ CartoonGAN
 
 **felzenszwalb algorithm**
 
-![Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%205.png](Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%205.png)
+![Capture](../assets/images/post-image-data-augmentation/paper5.png)
+
 
 **superpixel algorithms**
 
-![Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%206.png](Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%206.png)
+![Capture](../assets/images/post-image-data-augmentation/paper6.png)
+
 
 - 이후 Adaptive coloring algorithm을 사용하여 이미지에 대한 Haze를 줄입니다.
 - Haze란 '대상 물체와 관찰자 사이에 존재하는 물질들에 의해 빛이 진행을 방해받아 대상이 뿌옇게 보이는 현상'을 의미합니다.  아래 그림에서 (a)가 Haze가 있는 사진, (b)는 Haze를 제거한 사진입니다.
 
 **Adaptive coloring algorithm**
 
-![Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%207.png](Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%207.png)
+![Capture](../assets/images/post-image-data-augmentation/paper7.png)
 
-![Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%208.png](Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%208.png)
+
+![Capture](../assets/images/post-image-data-augmentation/paper8.png)
+
 
 **Haze 유무**
 
-![Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%209.png](Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%209.png)
+![Capture](../assets/images/post-image-data-augmentation/paper9.png)
+
 
 - 입력 사진은 Generator에도 들어가고 VGG 네트워크에도 들어갑니다. VGG 네트워크에서는 High level  feature를 추출해냅니다.  Structure 특징을 뽑아내기 위한 loss는 아래와 같습니다.
 
-![Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%2010.png](Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%2010.png)
+![Capture](../assets/images/post-image-data-augmentation/paper10.png)
+
 
 3-3) Learning From the Textural Representation
 
@@ -99,19 +109,18 @@ CartoonGAN
 - I_rgb는 RGB 채널을 갖는 이미지이고 I_r, I_g, I_b는 color channel을 의미한다. Y는 RGB 이미지를 grayscale한 것을 의미한다.
 - Alpha와 Beta 값은 사용자가 변경 할 수 있다. 논문에는 Alpha- 0.8, Beta = ~U(-1,1)을 사용했다.
 
-![Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%2011.png](Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%2011.png)
+![Capture](../assets/images/post-image-data-augmentation/paper11.png)
+
 
 - random color shift algorithm은 밝기와 색상 정보를 제거한 상태에서 무작위 intensity maps을 생성할 수 있다.
 - Discriminator D_t는 모델 출력물과 만화에서 추출한 질감 표현을 구별하고, Generator가 질감 표현에 저장된 명확한 윤곽과 미세한 질감을 학습하도록합니다.
 - Texture 정보를 뽑아낼 수 있는 loss는 아래 식과 같습니다.
 
-![Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%2012.png](Image%20Translation%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2(%E1%84%89%E1%85%A1%E1%86%BC)%201a6989ee997e45879ea7649a563346e1/Untitled%2012.png)
+![Capture](../assets/images/post-image-data-augmentation/paper12.png)
+
 
 ---
 
 논문리뷰(상)은 여기서 마치겠습니다. 다음 post인 (하)편에는 구성한 loss를 어떻게 전체 모델에서 통합시켰는지, 실험은 어떻게 진행했는지를 작성하겠습니다. 
 
 추가적으로 DSP(Digital Signal Processing)에 대한 필요한 지식,  (상)편 추가 설명을 담겠습니다. 
-
-- 
--

@@ -1,13 +1,18 @@
-# [fall intro team, 12月] 조합 함수와 def 함수 배우고 적용하기!
-
-
+---
+layout: post
+title: "[fall-intro team, Dec] 조합 함수와 def 함수 배우고 적용하기!"
+authors: [hyeinPark]
+tags: ["intro"]
+image: 
+description: "DSC intro team 12월 활동 정리."
+featured: false
+---
 
 
 
 12월 한 달 동안은 <u>def 와 for 을 이용한 조합 함수</u>와 <u>def 함수</u>를 응용해서 과제를 해결하는 시간을 
 
 가졌습니다!
-
 
 
 ------
@@ -218,7 +223,6 @@ print(fibo(10))
 
 
 ------
-
 
 
 9월부터 12월까지 과제를 하면서 파이썬 문법에 대해 익혀왔는데요!

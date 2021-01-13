@@ -57,15 +57,15 @@ MVC MVP MVVM, 각 디자인 패턴들이 어떻게 다르고, 서로 어떠한 �
 
 * MVC 구성
 
-Model
+**Model**
 
 앱에서 사용되는 데이터와, 데이터를 처리하는 부분
 
-View
+**View**
 
 사용자에게 보여지는 UI
 
-Controller
+**Controller**
 
 Model에 통해 가져온 데이터를 View에 전달
 
@@ -94,15 +94,15 @@ Model에 통해 가져온 데이터를 View에 전달
 
 * MVP 구성
 
-Model
+**Model**
 
 앱에서 사용되는 데이터와, 데이터를 처리하는 부분
 
-View
+**View**
 
 사용자에게 보여지는 UI
 
-Presenter
+**Presenter**
 
 Presenter는 View에서 요청한 정보로 Model을 가공해 View에게 전달해주는 역할
 
@@ -126,15 +126,15 @@ MVC와 동일한 모델을 가지나, 유저 입력을 View에서 받는다는 �
 
 * MVVM 구성
 
-###### Model
+**Model**
 
 앱에서 사용되는 데이터와, 데이터를 처리하는 부분
 
-###### View
+**View**
 
 사용자에게 보여지는 UI
 
-###### ViewModel
+**ViewModel**
 
 View를 위한 Model
 

@@ -23,22 +23,22 @@ Web 팀의 4번째 미션은 React 아래의 교재로 리액트 공부를 하�
     Sass는 CSS의 전처리기로써 웹에서 컴파일이 안되지만, CSS보다 간단한 문법을 제공합니다.
 
         'node-sass' 라이브러리를 통해 Sass가 CSS로 변환되어 웹에서 컴파일 됩니다.
-        
+
         sass는 css와 상당히 유사한 문법을 가지고 있습니다. 지금부터 소개할 몇 가지 문법은 css와 다른 sass의 문법입니다.
-        
+
         1. 변수 선언
-        
+
            ```css
            $변수명: 값;
            ```
-        
+
            css는 변수명 앞에 '$' 붙이지 않는다는 차이점이 있습니다.
            변수 사용시 $변수명; 으로 사용합니다.
-        
+
         2. 셀렉터 선언
-        
+
            - css로 작성시
-        
+
            ```css
             div.container h4 {
                 color : blue;
@@ -47,9 +47,9 @@ Web 팀의 4번째 미션은 React 아래의 교재로 리액트 공부를 하�
                 color : green;
             }
             ```
-        
+
             - sass로 작성시
-        
+
             ```css
             div.container {
                 h4 {
@@ -60,9 +60,9 @@ Web 팀의 4번째 미션은 React 아래의 교재로 리액트 공부를 하�
                 }
             }
             ```
-        
+
             셀렉트는 h4, p와 같이 html 스타일 요소를 뜻합니다.
-        
+
             css와 달리 sass는 관련된 class 안에 셀렉터들을 선언합니다. css보다 코드가 간결해지고 셀럭터 해석이 편하다는 장점이 있습니다.
 
 2.  CSS Module
@@ -204,11 +204,11 @@ const TodoTemplateBlock = styled.div`
   width: 512px;
   height: 768px;
 
-  position: relative;  /* 추후 박스 하단에 추가 버튼을 위치시키기 위한 설정 */
+  position: relative; /* 추후 박스 하단에 추가 버튼을 위치시키기 위한 설정 */
   background: skyblue;
   border-radius: 30px; /* 모서리 둥근 정도 */
 
-  margin: 0 auto;      /* 페이지 중앙에 나타나도록 설정 */
+  margin: 0 auto; /* 페이지 중앙에 나타나도록 설정 */
 
   margin-top: 96px;
   margin-bottom: 32px;
@@ -637,59 +637,55 @@ Hook은 간단히 설명하자면 class를 사용하지 않고 function에서 st
 
    Context API를 알기 위해서는 redux를 알아야 한데서 알려고 했는데...알 수 없었습니다...😥
 
-   
-
    src 폴더에 TodoContext.js를 생성하고 `useReducer`를 사용하여 상태 관리하는 `TodoProvider`라는 컴포넌트를 만들어봅시다.
 
    `TodoProvider` 함수에는 todo 들이 저장 되어 있는 `initialTodos`와 todo 기능인 `CRAET`, `TOGGLE`, `REMOVE`를 모아놓은 `todoReducer`를 컴포넌트들에 전달하여 컴포넌트들이 직접 렌더링 할 수 있게 합니다.
 
-    
-
    ##### TodoContext.js
 
    ```javascript
-   import React, { useReducer, createContext, useContext, useRef } from 'react';
-   
+   import React, { useReducer, createContext, useContext, useRef } from "react";
+
    // TODO 저장
    const initialTodos = [
      {
        id: 1,
-       text: 'zeze는 귀여워',	// TODO
-       done: true			   // 버튼 체크 유무, 체크하면 true	
+       text: "zeze는 귀여워", // TODO
+       done: true, // 버튼 체크 유무, 체크하면 true
      },
      {
        id: 2,
-       text: 'zeze는 바보야',
-       done: true
-     }
+       text: "zeze는 바보야",
+       done: true,
+     },
    ];
-   
+
    function todoReducer(state, action) {
      switch (action.type) {
-   	// TODO 생성시 이벤트
-       case 'CREATE':
+       // TODO 생성시 이벤트
+       case "CREATE":
          return state.concat(action.todo);
-   	// 버튼 클릭시 이벤트
-       case 'TOGGLE':
-         return state.map(todo =>
+       // 버튼 클릭시 이벤트
+       case "TOGGLE":
+         return state.map((todo) =>
            todo.id === action.id ? { ...todo, done: !todo.done } : todo
          );
-   	// 휴지통 아이콘 클리시 이벤트
-       case 'REMOVE':
-         return state.filter(todo => todo.id !== action.id);
+       // 휴지통 아이콘 클리시 이벤트
+       case "REMOVE":
+         return state.filter((todo) => todo.id !== action.id);
        default:
          throw new Error(`Unhandled action type: ${action.type}`);
      }
    }
-   
+
    const TodoStateContext = createContext();
    const TodoDispatchContext = createContext();
    const TodoNextIdContext = createContext();
-   
+
    export function TodoProvider({ children }) {
      const [state, dispatch] = useReducer(todoReducer, initialTodos);
      const nextId = useRef(5);
-   
+
      return (
        <TodoStateContext.Provider value={state}>
          <TodoDispatchContext.Provider value={dispatch}>
@@ -700,29 +696,25 @@ Hook은 간단히 설명하자면 class를 사용하지 않고 function에서 st
        </TodoStateContext.Provider>
      );
    }
-   
+
    export function useTodoState() {
      return useContext(TodoStateContext);
    }
-   
+
    export function useTodoDispatch() {
      return useContext(TodoDispatchContext);
    }
-   
+
    export function useTodoNextId() {
      return useContext(TodoNextIdContext);
    }
    ```
-
-   
 
 3. 기능 구현하기
 
    앞서 컴포넌트를 구현하면서 to do list의 UI 구현을 마쳤습니다. 이제 기능 구현을 해보겠습니다.
 
    앞서 만들어진 컴포넌트에 기능 구현 코드를 추가하겠습니다.
-
-
 
 ##### 1. TodoHead.js
 
@@ -762,13 +754,11 @@ function TodoHead() {
 export default TodoHead;
 ```
 
-
-
 ##### 2. TodoList.js
 
 TodoContext.js에서 저장할 todo 두 개를 임시로 적어놨습니다.
 
-TodoList는 TodoContext의 `initialTodos`의 state를  `map` 함수 받아올 것입니다.
+TodoList는 TodoContext의 `initialTodos`의 state를 `map` 함수 받아올 것입니다.
 
 ```javascript
 ...
@@ -777,8 +767,8 @@ import { useTodoState } from '../TodoContext';
 function TodoList() {
 	const todos = useTodoState();
 
-  return ( 
-	<TodoListBlock > 
+  return (
+	<TodoListBlock >
 		{todos.map(todo => (
         <TodoItem
           id={todo.id}
@@ -795,11 +785,7 @@ export default TodoList;
 
 ![todolist_8.png](../assets/images/post-WEB-Mission4/todolist_8.png)
 
-
-
 TodoContext의 state를 제대로 불러와서 렌더링 한 것을 확인할 수 있습니다.
-
-
 
 ##### 3. TodoItem.js
 
@@ -832,8 +818,6 @@ function TodoItem({ id, done, text }) {
 ...
 ```
 
-
-
 ##### 4. TodoCreate.js
 
 마지막으로 클라이언트가 input form에 작성하면 todolist가 렌더링 해줘 새로운 todo가 뜨게 만드는 기능을 구현해 봅시다.
@@ -854,7 +838,7 @@ function TodoCreate() {
 	const onChange = e => setValue(e.target.value);
   const onSubmit = e => {
     e.preventDefault();            // 새로고침 방지
-      
+
     // TodoTemplate에서 CREATE 이용해 todoInitial 추가
 		dispatch({
       type: 'CREATE',
@@ -866,7 +850,7 @@ function TodoCreate() {
     });
     setValue('');
     setOpen(false);
-    nextId.current += 1;	 // CREATE 호출 할 때 마다 id 1씩 증가 
+    nextId.current += 1;	 // CREATE 호출 할 때 마다 id 1씩 증가
   };
 
   return (
@@ -892,12 +876,6 @@ function TodoCreate() {
 ...
 ```
 
-
-
 이로써 모든 기능을 구현했습니다!
 
-유튜브 영상을 마크다운 문법으로 올리려니깐 자꾸 에러가 나서 링크로 대체 하겠습니다.
-
-완성된 to do list 데모영상입니다.
-
-https://www.youtube.com/watch?v=pH76lDisyUU&feature=youtu.be
+![demo](https://www.youtube.com/watch?v=pH76lDisyUU&feature=youtu.be)

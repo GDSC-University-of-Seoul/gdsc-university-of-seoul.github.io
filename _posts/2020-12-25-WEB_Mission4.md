@@ -23,22 +23,22 @@ Web 팀의 4번째 미션은 React 아래의 교재로 리액트 공부를 하�
     Sass는 CSS의 전처리기로써 웹에서 컴파일이 안되지만, CSS보다 간단한 문법을 제공합니다.
 
         'node-sass' 라이브러리를 통해 Sass가 CSS로 변환되어 웹에서 컴파일 됩니다.
-
+        
         sass는 css와 상당히 유사한 문법을 가지고 있습니다. 지금부터 소개할 몇 가지 문법은 css와 다른 sass의 문법입니다.
-
+        
         1. 변수 선언
-
+        
            ```css
            $변수명: 값;
            ```
-
+        
            css는 변수명 앞에 '$' 붙이지 않는다는 차이점이 있습니다.
            변수 사용시 $변수명; 으로 사용합니다.
-
+        
         2. 셀렉터 선언
-
+        
            - css로 작성시
-
+        
            ```css
             div.container h4 {
                 color : blue;
@@ -47,9 +47,9 @@ Web 팀의 4번째 미션은 React 아래의 교재로 리액트 공부를 하�
                 color : green;
             }
             ```
-
+        
             - sass로 작성시
-
+        
             ```css
             div.container {
                 h4 {
@@ -60,9 +60,9 @@ Web 팀의 4번째 미션은 React 아래의 교재로 리액트 공부를 하�
                 }
             }
             ```
-
+        
             셀렉트는 h4, p와 같이 html 스타일 요소를 뜻합니다.
-
+        
             css와 달리 sass는 관련된 class 안에 셀렉터들을 선언합니다. css보다 코드가 간결해지고 셀럭터 해석이 편하다는 장점이 있습니다.
 
 2.  CSS Module
@@ -204,11 +204,11 @@ const TodoTemplateBlock = styled.div`
   width: 512px;
   height: 768px;
 
-  position: relative; /* 추후 박스 하단에 추가 버튼을 위치시키기 위한 설정 */
+  position: relative;  /* 추후 박스 하단에 추가 버튼을 위치시키기 위한 설정 */
   background: skyblue;
   border-radius: 30px; /* 모서리 둥근 정도 */
 
-  margin: 0 auto; /* 페이지 중앙에 나타나도록 설정 */
+  margin: 0 auto;      /* 페이지 중앙에 나타나도록 설정 */
 
   margin-top: 96px;
   margin-bottom: 32px;
@@ -597,6 +597,10 @@ export default TodoCreate;
 
 2. Context API 를 활용한 상태 관리
 
+   이 파트는 사실 거의 이해를 못 했습니다...탈주 하지는 말았어야 했는데...
+
+   코어 멤버 분 뵐 면목이 없습니다...ㅠㅠ
+
 ![contextAPI1.png](../assets/images/post-WEB-Mission4/contextAPI1.png)
 
 다음과 같은 구조로 상태관리를 한다면 프로젝트 규모가 커질 시 최상위 컴포넌트인 App의 컴포넌트에서 모든 상태 관리를 하기엔 코드가 너무 복잡해질 수 있고, 여러 컴포넌트를 거쳐 props를 전달해야 하는 불편함이 있을 수 있습니다.
@@ -623,6 +627,7 @@ Hook은 간단히 설명하자면 class를 사용하지 않고 function에서 st
 이번 장에서 한 번더 언급되는 개념들만 간단히 설명하고 넘어가겠습니다.
 
 1. 1.7: useState(): 배열에 두 값을 넣어 return 됩니다. 첫 번째 배열에는 useStete의 인자값이, 두 번째 배열애는 state를 변경할 수 있는 함수가 return 됩니다.
+
 2. 1.20: useReducer(): useState()와 비슷한 함수입니다. useStete()가 컴포넌트 내부의 stste를 업데이트 한다면 useReducer()는 state를 컴포넌트 외부에서 업데이트 할 수 있습니다.
 
    Context API를 한 번에 이해하기 힘들었습니다. react는 업데이트가 상당히 빠른 라이브러리기 때문에 현재의 쓰임새를 이해하기 위해서는 그 전의 사용법도 알아야 했습니다. 현재의 사용법이 과거의 불편사항의 개선 결과이기 때문이죠.
@@ -630,51 +635,61 @@ Hook은 간단히 설명하자면 class를 사용하지 않고 function에서 st
    Context API가 react에서 업데이트 하기 전까지 프로젝트의 규모와 상관없이 전역 state 관리는 redux를 사용했습니다.
    redux는...뭔지 잘 모르겠습니다...
 
-   알려고 했는데...알 수 없었습니다.
+   Context API를 알기 위해서는 redux를 알아야 한데서 알려고 했는데...알 수 없었습니다...😥
+
+   
 
    src 폴더에 TodoContext.js를 생성하고 `useReducer`를 사용하여 상태 관리하는 `TodoProvider`라는 컴포넌트를 만들어봅시다.
 
-   ##### TodoContext
+   `TodoProvider` 함수에는 todo 들이 저장 되어 있는 `initialTodos`와 todo 기능인 `CRAET`, `TOGGLE`, `REMOVE`를 모아놓은 `todoReducer`를 컴포넌트들에 전달하여 컴포넌트들이 직접 렌더링 할 수 있게 합니다.
+
+    
+
+   ##### TodoContext.js
 
    ```javascript
-   import React, { useReducer, createContext, useContext, useRef } from "react";
-
+   import React, { useReducer, createContext, useContext, useRef } from 'react';
+   
+   // TODO 저장
    const initialTodos = [
      {
        id: 1,
-       text: "zeze는 귀여워",
-       done: true,
+       text: 'zeze는 귀여워',	// TODO
+       done: true			   // 버튼 체크 유무, 체크하면 true	
      },
      {
        id: 2,
-       text: "zeze는 바보야",
-       done: true,
-     },
+       text: 'zeze는 바보야',
+       done: true
+     }
    ];
-
+   
    function todoReducer(state, action) {
      switch (action.type) {
-       case "CREATE":
+   	// TODO 생성시 이벤트
+       case 'CREATE':
          return state.concat(action.todo);
-       case "TOGGLE":
-         return state.map((todo) =>
+   	// 버튼 클릭시 이벤트
+       case 'TOGGLE':
+         return state.map(todo =>
            todo.id === action.id ? { ...todo, done: !todo.done } : todo
          );
-       case "REMOVE":
-         return state.filter((todo) => todo.id !== action.id);
+   	// 휴지통 아이콘 클리시 이벤트
+       case 'REMOVE':
+         return state.filter(todo => todo.id !== action.id);
        default:
          throw new Error(`Unhandled action type: ${action.type}`);
      }
    }
-
+   
    const TodoStateContext = createContext();
    const TodoDispatchContext = createContext();
    const TodoNextIdContext = createContext();
-
+   
    export function TodoProvider({ children }) {
      const [state, dispatch] = useReducer(todoReducer, initialTodos);
      const nextId = useRef(5);
-
+   
      return (
        <TodoStateContext.Provider value={state}>
          <TodoDispatchContext.Provider value={dispatch}>
@@ -685,20 +700,200 @@ Hook은 간단히 설명하자면 class를 사용하지 않고 function에서 st
        </TodoStateContext.Provider>
      );
    }
-
+   
    export function useTodoState() {
      return useContext(TodoStateContext);
    }
-
+   
    export function useTodoDispatch() {
      return useContext(TodoDispatchContext);
    }
-
+   
    export function useTodoNextId() {
      return useContext(TodoNextIdContext);
    }
    ```
 
+   
+
 3. 기능 구현하기
 
-앞서 컴포넌트를 구현하면서 to do list의 UI 구현을 마쳤습니다. 이제 기능 구현을 해보겠습니다.
+   앞서 컴포넌트를 구현하면서 to do list의 UI 구현을 마쳤습니다. 이제 기능 구현을 해보겠습니다.
+
+   앞서 만들어진 컴포넌트에 기능 구현 코드를 추가하겠습니다.
+
+
+
+##### 1. TodoHead.js
+
+`today.toLocaleDateString` 함수로 실제 오늘 날짜를 띄웁니다.
+
+to do list의 헤드의 날짜가 오늘 날짜로 바뀌는 것을 확인할 수 있습니다.
+
+```javascript
+...
+import { useTodoState } from '../TodoContext';
+...
+
+function TodoHead() {
+  const todos = useTodoState();
+  const undoneTasks = todos.filter(todo => !todo.done);
+
+  // 실제 오늘 날짜 보여주기
+  const today = new Date();
+  const dateString = today.toLocaleDateString('ko-KR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+  const dayName = today.toLocaleDateString('ko-KR', { weekday: 'long' });
+
+
+  return (
+    <TodoHeadBlock>
+	  <div className="hurry_up_zeze">제제 글을 마저 써...</div>
+      <h1>{dateString}</h1>
+      <div className="day">{dayName}</div>
+      <div className="tasks-left">할 일 {undoneTasks.length}개 남음</div>
+    </TodoHeadBlock>
+  );
+}
+
+export default TodoHead;
+```
+
+
+
+##### 2. TodoList.js
+
+TodoContext.js에서 저장할 todo 두 개를 임시로 적어놨습니다.
+
+TodoList는 TodoContext의 `initialTodos`의 state를  `map` 함수 받아올 것입니다.
+
+```javascript
+...
+import { useTodoState } from '../TodoContext';
+...
+function TodoList() {
+	const todos = useTodoState();
+
+  return ( 
+	<TodoListBlock > 
+		{todos.map(todo => (
+        <TodoItem
+          id={todo.id}
+          text={todo.text}
+          done={todo.done}
+        />
+      ))}
+	</TodoListBlock>
+	);
+}
+
+export default TodoList;
+```
+
+![todolist_8.png](../assets/images/post-WEB-Mission4/todolist_8.png)
+
+
+
+TodoContext의 state를 제대로 불러와서 렌더링 한 것을 확인할 수 있습니다.
+
+
+
+##### 3. TodoItem.js
+
+TodoContext의 `dispatch`를 사용해 `TOGGLE`함수와 `REMOVE`함수를 사용할 수 있습니다.
+
+글을 삭제 시 TodoHead에서 TodoContext의 `useTodoState`함수를 이용해 아직 완수 되지 않은 todo의 개수를 바로 반영합니다.
+
+```javascript
+...
+import { useTodoDispatch } from '../TodoContext';
+...
+// todo id/ 완료 true, flase / todo 내용 전달 받음
+function TodoItem({ id, done, text }) {
+	const dispatch = useTodoDispatch();
+  const onToggle = () => dispatch({ type: 'TOGGLE', id });
+  const onRemove = () => dispatch({ type: 'REMOVE', id });
+  return (
+    <TodoItemBlock>
+			{/* 체크버튼 누릴 시 TodoContext의 TOGGLE 이벤트 발생 */}
+      <CheckCircle done={done} onClick={onToggle}>
+        {done && <MdDone />}
+      </CheckCircle>
+      <Text done={done}>{text}</Text>
+			{/* 쓰레기통 아이콘 누릴 시 TodoContext의 REMOVE 이벤트 발생 */}
+      <Remove onClick={onRemove}>
+        <MdDelete />
+      </Remove>
+    </TodoItemBlock>
+  );
+...
+```
+
+
+
+##### 4. TodoCreate.js
+
+마지막으로 클라이언트가 input form에 작성하면 todolist가 렌더링 해줘 새로운 todo가 뜨게 만드는 기능을 구현해 봅시다.
+
+```javascript
+...
+import { useTodoDispatch, useTodoNextId } from '../TodoContext';
+...
+
+function TodoCreate() {
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState('');
+
+	const dispatch = useTodoDispatch();
+  const nextId = useTodoNextId();
+
+  const onToggle = () => setOpen(!open);
+	const onChange = e => setValue(e.target.value);
+  const onSubmit = e => {
+    e.preventDefault();            // 새로고침 방지
+      
+    // TodoTemplate에서 CREATE 이용해 todoInitial 추가
+		dispatch({
+      type: 'CREATE',
+      todo: {
+        id: nextId.current,
+        text: value,
+        done: false					// 디폴트가 체크하지 않은 상태
+      }
+    });
+    setValue('');
+    setOpen(false);
+    nextId.current += 1;	 // CREATE 호출 할 때 마다 id 1씩 증가 
+  };
+
+  return (
+    <>
+      {open && (
+        <InsertFormPositioner>
+          <InsertForm onSubmit={onSubmit}>
+            <Input
+              autoFocus
+              placeholder="할 일 작성 후 엔터를 눌러주세요. 쫍😘"
+              onChange={onChange}
+              value={value}
+            />
+          </InsertForm>
+        </InsertFormPositioner>
+      )}
+      <CircleButton onClick={onToggle} open={open}>
+        <MdAdd />
+      </CircleButton>
+    </>
+  );
+}
+...
+```
+
+
+
+이로써 모든 기능을 구현했습니다!
+
+![todolist_final.mp4](../assets/images/post-WEB-Mission4/todolist_final.mp4)

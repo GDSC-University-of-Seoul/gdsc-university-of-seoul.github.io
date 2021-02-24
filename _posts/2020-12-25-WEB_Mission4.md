@@ -896,4 +896,8 @@ function TodoCreate() {
 
 이로써 모든 기능을 구현했습니다!
 
-![todolist_final.mp4](../assets/images/post-WEB-Mission4/todolist_final.mp4)
+유튜브 영상을 마크다운 문법으로 올리려니깐 자꾸 에러가 나서 링크로 대체 하겠습니다.
+
+완성된 to do list 데모영상입니다.
+
+https://www.youtube.com/watch?v=pH76lDisyUU&feature=youtu.be

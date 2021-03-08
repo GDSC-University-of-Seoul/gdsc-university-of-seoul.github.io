@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Web Mission4 - React 2-4장"
+title: "Web Mission4 - React 2-3장"
 authors: [zeze1004]
 tags: ["Web"]
-image:
+image: /assets/images/post-WEB-Mission4/todolist_8.png
 description: "React"
 featured: false
 ---

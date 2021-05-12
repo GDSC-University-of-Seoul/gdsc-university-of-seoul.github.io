@@ -155,32 +155,32 @@ featured: false
    // 로그인시 DB에 저장된 email 먼저 찾고, email 있다면 암호화된 password랑 user가 입력한 password 비교
    userController.login = async (req, res) => {
      try {
-   		const user = await userModel.findOne({
+      const user = await userModel.findOne({
          // email 먼저 비교
-   			email: req.body.email
-   		});
-       if (!user) {
-         return res
-           .status(StatusCodes.BAD_REQUEST)
-   				.send('가입 되지 않은 회원입니다.');
-   				// .redirect("/api-docs");
-       }
-   		user
-   		.comparePassword(req.body.password)
-   		.then((isMatch) => {
-   		// password 일치 안 할 시
-   			if(!isMatch) {
-   				return res.send('비밀번호가 일치하지 않습니다.');
-   			}
-   		});
-   		// password 일치 시
-   		res.send('로그인 되었습니다.');
-   		})
-     } catch (error) {
-       return res
-         .status(StatusCodes.INTERNAL_SERVER_ERROR)
-         .json({ error: error.toString() });
-     }
+      email: req.body.email
+      });
+        if (!user) {
+          return res
+            .status(StatusCodes.BAD_REQUEST)
+            .send('가입 되지 않은 회원입니다.');
+            // .redirect("/api-docs");
+        }
+        user
+        .comparePassword(req.body.password)
+        .then((isMatch) => {
+        // password 일치 안 할 시
+        if(!isMatch) {
+          return res.send('비밀번호가 일치하지 않습니다.');
+        }
+      });
+        // password 일치 시
+        res.send('로그인 되었습니다.');
+        })
+      } catch (error) {
+        return res
+          .status(StatusCodes.INTERNAL_SERVER_ERROR)
+          .json({ error: error.toString() });
+      }
    };
    ```
 
@@ -216,11 +216,11 @@ featured: false
    ```javascript
    // model
    const userSchema = new Schema({
-   	...,
-   	token: {
-   		type: String
-   	},
-   	...
+    ...,
+    token: {
+    type: String
+    },
+    ...
    });
    ```
 
@@ -264,7 +264,7 @@ featured: false
 
    유저가 서버에 request할 때마다 서버는 token이 일치하는지만 검증하면 된다.
 
-   ### 🍒JWT에 대해 알아보자🍒
+### 🍒JWT에 대해 알아보자🍒
 
    Token Based Auth
 
@@ -276,9 +276,9 @@ featured: false
 
    `헤더`, `페이로드`, `시그니처`.
 
-   #### 헤더: Algorithm, Token type
+#### 헤더: Algorithm, Token type
 
-   - 어떤 알고리즘으로 인크립션(암호화)할건지 결정
+- 어떤 알고리즘으로 인크립션(암호화)할건지 결정
 
      ```json
      {
@@ -287,24 +287,24 @@ featured: false
      }
      ```
 
-   #### 페이로드: Data
+#### 페이로드: Data
 
-   - 개발자가 원하는 걸 저장하면 된다.
+- 개발자가 원하는 걸 저장하면 된다.
 
-   - 네트워크에 정보가 올라가므로 최소한의 데이터만 저장하는 걸 권장
+- 네트워크에 정보가 올라가므로 최소한의 데이터만 저장하는 걸 권장
 
      ```json
      {
          "id": "1223034", // 사용자 unique id
-         "exp": 21313, 	 // 토큰 만료기간
+         "exp": 21313,  // 토큰 만료기간
          ...,
-         "CreditCardNum": 3242342	// 절대 X, 헤더와 페이로드는 암호화되지 않음
+         "CreditCardNum": 3242342 // 절대 X, 헤더와 페이로드는 암호화되지 않음
      }
      ```
 
-   #### 시그니쳐
+#### 시그니쳐
 
-   - 헤더와 페이로드에 시크릿키를 추가한 채 저장
+- 헤더와 페이로드에 시크릿키를 추가한 채 저장
 
      ```json
      HMACSHA256(

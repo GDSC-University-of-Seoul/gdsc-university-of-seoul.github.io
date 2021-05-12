@@ -19,7 +19,8 @@ Web 팀의 4번째 미션은 React 아래의 교재로 리액트 공부를 하�
 
 ## [2장] 리액트 컴포넌트 스타일링하기
 
-1.  Sass
+1. Sass
+
     Sass는 CSS의 전처리기로써 웹에서 컴파일이 안되지만, CSS보다 간단한 문법을 제공합니다.
 
     'node-sass' 라이브러리를 통해 Sass가 CSS로 변환되어 웹에서 컴파일 됩니다.
@@ -65,7 +66,8 @@ Web 팀의 4번째 미션은 React 아래의 교재로 리액트 공부를 하�
 
        css와 달리 sass는 관련된 class 안에 셀렉터들을 선언합니다. css보다 코드가 간결해지고 셀럭터 해석이 편하다는 장점이 있습니다.
 
-2.  CSS Module
+2. CSS Module
+
     코드가 길어지면 중복되는 클래스 이름이 생길 수 있습니다. CSS Module은 클래스 이름을 고유하게 만들어 겹치지 않도록 해줍니다.
 
     따로 라이브러리를 설치할 필요 없이 기존 css 파일 확장자를 .module.css로 설정하면 됩니다.
@@ -85,7 +87,8 @@ Web 팀의 4번째 미션은 React 아래의 교재로 리액트 공부를 하�
 
     import로 불러온 styles 객체 안에 있는 값을 참조해야 합니다.
 
-3.  styled-components
+3. styled-components
+
     styled-components는 js 안에 css(CSS in JS)를 작성할 수 있는 리액트 라이브러리 입니다.
 
     보통 react 컴포넌트를 스타일링할 때 외부 css 파일을 className으로 속성을 전달 받아서 렌더링하여 사용했는데요.
@@ -139,7 +142,7 @@ Web 팀의 4번째 미션은 React 아래의 교재로 리액트 공부를 하�
 긴 코드를 제가 리뷰하는 것보다 교재를 보면서 직접 해보시는게 훨씬 이해가 빠를 거라 생각이 들었습니다. 고민 끝에 저는 코드 리뷰보다는 개념 설명에 더 집중하기로 했답니다.
 ~~(그리고 리액트를 이해하기 포기했다고 합니다.)~~
 
-1.  컴포넌트 만들기
+1. 컴포넌트 만들기
 
     `create-react-app`을 사용해 새로운 프로젝트를 만든 후
     `npm add styled-components` 설치해주세요.
@@ -156,43 +159,43 @@ Web 팀의 4번째 미션은 React 아래의 교재로 리액트 공부를 하�
 
     `createGlobalStyle`은 js파일에서 `body {}` 태그를 호출해 태그 내부에서 css 적용을 시킬 수 있습니다. 이름에서부터 알 수 있듯이 글로벌 스타일을 설정할 때 사용합니다. `createGlobalStyle`을 안 쓰고 따로 css 파일에 적용해도 똑같습니다.
 
-    ##### App.js
+### App.js
 
-    ```javascript
-    import React from "react";
-    import { createGlobalStyle } from "styled-components";
+  ```javascript
+      import React from "react";
+      import { createGlobalStyle } from "styled-components";
 
-    const GlobalStyle = createGlobalStyle`
-      body {
-        background: pink; 
+      const GlobalStyle = createGlobalStyle`
+        body {
+          background: pink; 
+        }
+      `;
+
+      function App() {
+        return (
+          <>
+            <GlobalStyle /> {/* 배경 적용 */}
+            <div>제제는 리액트가 싫어요.</div>
+          </>
+        );
       }
-    `;
 
-    function App() {
-      return (
-        <>
-          <GlobalStyle /> {/* 배경 적용 */}
-          <div>제제는 리액트가 싫어요.</div>
-        </>
-      );
-    }
+      export default App;
+  ```
 
-    export default App;
-    ```
+![todolist_1.png](../assets/images/post-WEB-Mission4/todolist_1.png)
 
-    ![todolist_1.png](../assets/images/post-WEB-Mission4/todolist_1.png)
+  분홍색 배경이 적용 되었습니다.
 
-    분홍색 배경이 적용 되었습니다.
+  이제 to do list 컴포넌트를 만들어보겠습니다.
 
-    이제 to do list 컴포넌트를 만들어보겠습니다.
+  `src` 폴더 내에 `components` 폴더를 만들고 `components` 폴더 내에 컴포넌트 파일을 모두 저장하겠습니다.
 
-    `src` 폴더 내에 `components` 폴더를 만들고 `components` 폴더 내에 컴포넌트 파일을 모두 저장하겠습니다.
+  현재 폴더 구조는 아래와 같습니다.
 
-    현재 폴더 구조는 아래와 같습니다.
+  ![todolist_2.png](../assets/images/post-WEB-Mission4/todolist_2.png)
 
-    ![todolist_2.png](../assets/images/post-WEB-Mission4/todolist_2.png)
-
-##### 1. TodoTemplate.js
+### 1. TodoTemplate.js
 
 첫 번째로 만들 컴포넌트입니다.
 
@@ -227,7 +230,7 @@ export default TodoTemplate;
 
 작성한 TodoTemplate.js를 사용하도록 App.js를 조금 수정합시다.
 
-##### App.js
+[App.js]
 
 ```javascript
 ...
@@ -252,7 +255,7 @@ export default App;
 
 배경색은 유지된 채, TodoTemplate.js에서 만든 TodoTemplateBlock이 잘 적용 되었습니다.
 
-##### 2. TodoHead.js
+### 2. TodoHead.js
 
 두 번째로 만들 컴포넌트는 날짜, 요일, 남은 할 일 개수를 보여줄 겁니다.
 
@@ -308,7 +311,7 @@ export default TodoHead;
 
 TodoHead.js 코드를 작성한 후 TodoHead.js와 마찬가지로 App.js에 파일을 적용시킵니다.
 
-##### App.js
+[App.js]
 
 ```javascript
 ...
@@ -334,7 +337,7 @@ export default App;
 
 ![todolist_4.png](../assets/images/post-WEB-Mission4/todolist_4.png)
 
-##### 3. TodoList.js
+### 3. TodoList.js
 
 여러 개의 할 일을 보여주는 컴포넌트를 만들겠습니다.
 
@@ -356,7 +359,7 @@ function TodoList() {
 export default TodoList;
 ```
 
-##### App.js
+[App.js]
 
 ```javascript
 ...
@@ -365,11 +368,11 @@ import TodoList from './components/TodoList';
 function App() {
   return (
     <>
-      <GlobalStyle /> 	{/* 배경 적용 */}
+      <GlobalStyle /> {/* 배경 적용 */}
       <TodoTemplate>제제는 리액트가 싫어요.
-			<TodoHead />
-			<TodoList />
-			</TodoTemplate>
+      <TodoHead />
+      <TodoList />
+      </TodoTemplate>
     </>
   );
 }
@@ -378,7 +381,7 @@ function App() {
 
 ![todolist_5.png](../assets/images/post-WEB-Mission4/todolist_5.png)
 
-#### 4. TodoItem.js
+### 4. TodoItem.js
 
 TodoList 위에 할 일의 항목을 보여 줄 컴포넌트를 만들겠습니다.
 
@@ -464,7 +467,7 @@ export default TodoItem;
 
 TodoItem은 TodoList에서 렌더링 됩니다. 따라서 App.js 호출하지 않고 TodoList.js에서 불러오겠습니다.
 
-##### TodoList.js
+[TodoList.js]
 
 ```javascript
 ...
@@ -472,18 +475,18 @@ import TodoItem from './TodoItem';
 ...
 function TodoList() {
   return (
-	<TodoListBlock > TodoListBlock
-		<TodoItem text = "양치하기"	done = {false} />
-		<TodoItem text = "야식먹기"	done = {true} />
-	</TodoListBlock>
-	);
+  <TodoListBlock > TodoListBlock
+  <TodoItem text = "양치하기" done = {false} />
+  <TodoItem text = "야식먹기" done = {true} />
+  </TodoListBlock>
+  );
 }
 ...
 ```
 
 ![todolist_6.png](../assets/images/post-WEB-Mission4/todolist_6.png)
 
-#### 5. TodoCreate.js
+### 5. TodoCreate.js
 
 할 일 항목을 추가하는 버튼을 추가할 겁니다.
 
@@ -597,11 +600,10 @@ export default TodoCreate;
 
 이렇게 5가지 컴포넌트 작성이 완성 되었습니다. 다음 파트는 `Context API 를 활용한 상태 관리`입니다.
 
-2. Context API 를 활용한 상태 관리
+1. Context API 를 활용한 상태 관리
 
-   이 파트는 사실 거의 이해를 못 했습니다...탈주 하지는 말았어야 했는데...
-
-   코어 멤버 분 뵐 면목이 없습니다...ㅠㅠ
+   이 파트는 개념적인 부분을 대부분 이해를 못 했습니다😢
+   따라서 실습 위주로 적겠습니다!
 
 ![contextAPI1.png](../assets/images/post-WEB-Mission4/contextAPI1.png)
 
@@ -646,7 +648,7 @@ Hook은 간단히 설명하자면 class를 사용하지 않고 function에서 st
 
    `TodoProvider` 함수에는 todo 들이 저장 되어 있는 `initialTodos`와 todo 기능인 `CRAET`, `TOGGLE`, `REMOVE`를 모아놓은 `todoReducer`를 컴포넌트들에 전달하여 컴포넌트들이 직접 렌더링 할 수 있게 합니다.
 
-   ##### TodoContext.js
+   [TodoContext.js]
 
    ```javascript
    import React, { useReducer, createContext, useContext, useRef } from "react";
@@ -721,7 +723,7 @@ Hook은 간단히 설명하자면 class를 사용하지 않고 function에서 st
 
    앞서 만들어진 컴포넌트에 기능 구현 코드를 추가하겠습니다.
 
-##### 1. TodoHead.js
+### 1. TodoHead.js
 
 `today.toLocaleDateString` 함수로 실제 오늘 날짜를 띄웁니다.
 
@@ -748,7 +750,7 @@ function TodoHead() {
 
   return (
     <TodoHeadBlock>
-	  <div className="hurry_up_zeze">제제 글을 마저 써...</div>
+    <div className="hurry_up_zeze">제제 글을 마저 써...</div>
       <h1>{dateString}</h1>
       <div className="day">{dayName}</div>
       <div className="tasks-left">할 일 {undoneTasks.length}개 남음</div>
@@ -759,7 +761,7 @@ function TodoHead() {
 export default TodoHead;
 ```
 
-##### 2. TodoList.js
+### 2. TodoList.js
 
 TodoContext.js에서 저장할 todo 두 개를 임시로 적어놨습니다.
 
@@ -770,19 +772,19 @@ TodoList는 TodoContext의 `initialTodos`의 state를 `map` 함수 받아올 것
 import { useTodoState } from '../TodoContext';
 ...
 function TodoList() {
-	const todos = useTodoState();
+  const todos = useTodoState();
 
   return (
-	<TodoListBlock >
-		{todos.map(todo => (
+  <TodoListBlock >
+  {todos.map(todo => (
         <TodoItem
           id={todo.id}
           text={todo.text}
           done={todo.done}
         />
       ))}
-	</TodoListBlock>
-	);
+  </TodoListBlock>
+  );
 }
 
 export default TodoList;
@@ -792,7 +794,7 @@ export default TodoList;
 
 TodoContext의 state를 제대로 불러와서 렌더링 한 것을 확인할 수 있습니다.
 
-##### 3. TodoItem.js
+### 3. TodoItem.js
 
 TodoContext의 `dispatch`를 사용해 `TOGGLE`함수와 `REMOVE`함수를 사용할 수 있습니다.
 
@@ -804,17 +806,17 @@ import { useTodoDispatch } from '../TodoContext';
 ...
 // todo id/ 완료 true, flase / todo 내용 전달 받음
 function TodoItem({ id, done, text }) {
-	const dispatch = useTodoDispatch();
+  const dispatch = useTodoDispatch();
   const onToggle = () => dispatch({ type: 'TOGGLE', id });
   const onRemove = () => dispatch({ type: 'REMOVE', id });
   return (
     <TodoItemBlock>
-			{/* 체크버튼 누릴 시 TodoContext의 TOGGLE 이벤트 발생 */}
+    {/* 체크버튼 누릴 시 TodoContext의 TOGGLE 이벤트 발생 */}
       <CheckCircle done={done} onClick={onToggle}>
         {done && <MdDone />}
       </CheckCircle>
       <Text done={done}>{text}</Text>
-			{/* 쓰레기통 아이콘 누릴 시 TodoContext의 REMOVE 이벤트 발생 */}
+      {/* 쓰레기통 아이콘 누릴 시 TodoContext의 REMOVE 이벤트 발생 */}
       <Remove onClick={onRemove}>
         <MdDelete />
       </Remove>
@@ -823,7 +825,7 @@ function TodoItem({ id, done, text }) {
 ...
 ```
 
-##### 4. TodoCreate.js
+### 4. TodoCreate.js
 
 마지막으로 클라이언트가 input form에 작성하면 todolist가 렌더링 해줘 새로운 todo가 뜨게 만드는 기능을 구현해 봅시다.
 
@@ -836,26 +838,26 @@ function TodoCreate() {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState('');
 
-	const dispatch = useTodoDispatch();
+  const dispatch = useTodoDispatch();
   const nextId = useTodoNextId();
 
   const onToggle = () => setOpen(!open);
-	const onChange = e => setValue(e.target.value);
+  const onChange = e => setValue(e.target.value);
   const onSubmit = e => {
     e.preventDefault();            // 새로고침 방지
 
     // TodoTemplate에서 CREATE 이용해 todoInitial 추가
-		dispatch({
+    dispatch({
       type: 'CREATE',
       todo: {
         id: nextId.current,
         text: value,
-        done: false					// 디폴트가 체크하지 않은 상태
+        done: false               // 디폴트가 체크하지 않은 상태
       }
     });
     setValue('');
     setOpen(false);
-    nextId.current += 1;	 // CREATE 호출 할 때 마다 id 1씩 증가
+    nextId.current += 1;        // CREATE 호출 할 때 마다 id 1씩 증가
   };
 
   return (
@@ -883,9 +885,7 @@ function TodoCreate() {
 
 이로써 모든 기능을 구현했습니다!
 
-데모 영상으로 구현된 모습을 확인할 수 있습니다.
-
-https://www.youtube.com/watch?v=pH76lDisyUU&feature=youtu.be
+[여기](https://www.youtube.com/watch?v=pH76lDisyUU&feature=youtu.be)서 구현된 모습을 영상으로 확인할 수 있습니다.
 
 ---
 

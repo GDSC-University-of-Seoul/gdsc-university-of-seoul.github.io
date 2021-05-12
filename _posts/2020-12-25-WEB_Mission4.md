@@ -19,53 +19,55 @@ Web 팀의 4번째 미션은 React 아래의 교재로 리액트 공부를 하�
 
 ## [2장] 리액트 컴포넌트 스타일링하기
 
-1.  Sass
-    Sass는 CSS의 전처리기로써 웹에서 컴파일이 안되지만, CSS보다 간단한 문법을 제공합니다.
+1. Sass
 
-        'node-sass' 라이브러리를 통해 Sass가 CSS로 변환되어 웹에서 컴파일 됩니다.
+      Sass는 CSS의 전처리기로써 웹에서 컴파일이 안되지만, CSS보다 간단한 문법을 제공합니다.
 
-        sass는 css와 상당히 유사한 문법을 가지고 있습니다. 지금부터 소개할 몇 가지 문법은 css와 다른 sass의 문법입니다.
+      'node-sass' 라이브러리를 통해 Sass가 CSS로 변환되어 웹에서 컴파일 됩니다.
 
-        1. 변수 선언
+      sass는 css와 상당히 유사한 문법을 가지고 있습니다. 지금부터 소개할 몇 가지 문법은 css와 다른 sass의 문법입니다.
 
-           ```css
-           $변수명: 값;
-           ```
+      1. 변수 선언
 
-           css는 변수명 앞에 '$' 붙이지 않는다는 차이점이 있습니다.
-           변수 사용시 $변수명; 으로 사용합니다.
+          ```css
+          $변수명: 값;
+          ```
 
-        2. 셀렉터 선언
+          css는 변수명 앞에 '$' 붙이지 않는다는 차이점이 있습니다.
+          변수 사용시 $변수명; 으로 사용합니다.
 
-           - css로 작성시
+      2. 셀렉터 선언
 
-           ```css
-            div.container h4 {
-                color : blue;
-            }
-            div.container p {
-                color : green;
-            }
-            ```
+          - css로 작성시
 
-            - sass로 작성시
+          ```css
+          div.container h4 {
+              color : blue;
+          }
+          div.container p {
+              color : green;
+          }
+          ```
 
-            ```css
-            div.container {
-                h4 {
-                    color : blue;
-                }
-                p {
-                    color : green;
-                }
-            }
-            ```
+          - sass로 작성시
 
-            셀렉트는 h4, p와 같이 html 스타일 요소를 뜻합니다.
+          ```css
+          div.container {
+              h4 {
+                  color : blue;
+              }
+              p {
+                  color : green;
+              }
+          }
+          ```
 
-            css와 달리 sass는 관련된 class 안에 셀렉터들을 선언합니다. css보다 코드가 간결해지고 셀럭터 해석이 편하다는 장점이 있습니다.
+          셀렉트는 h4, p와 같이 html 스타일 요소를 뜻합니다.
 
-2.  CSS Module
+          css와 달리 sass는 관련된 class 안에 셀렉터들을 선언합니다. css보다 코드가 간결해지고 셀럭터 해석이 편하다는 장점이 있습니다.
+
+2. CSS Module
+
     코드가 길어지면 중복되는 클래스 이름이 생길 수 있습니다. CSS Module은 클래스 이름을 고유하게 만들어 겹치지 않도록 해줍니다.
 
     따로 라이브러리를 설치할 필요 없이 기존 css 파일 확장자를 .module.css로 설정하면 됩니다.
@@ -94,7 +96,7 @@ Web 팀의 4번째 미션은 React 아래의 교재로 리액트 공부를 하�
 
     `npm add styled-components` 설치해주세요.
 
-    ![blue_circle.png](../assets/images/post-WEB-Mission4/blue_circle.png)
+    ![blue_circle.png](../assets/images/post-WEB-Mission4/blue-circle.png)
 
     styled-components를 이용하여 css 파일없이 위의 파란원을 만들어봅시다.
 
@@ -244,7 +246,11 @@ function App() {
 export default App;
 ```
 
+
+
 기존 App.js에서 TodoTemplate.js를 호출하고 TodoTemplate.js에서 만든 `div`태그를 적용 시킵니다.
+
+
 
 ![todolist_3.png](../assets/images/post-WEB-Mission4/todolist_3.png)
 
@@ -878,4 +884,5 @@ function TodoCreate() {
 
 이로써 모든 기능을 구현했습니다!
 
-![demo](https://www.youtube.com/watch?v=pH76lDisyUU&feature=youtu.be)
+[데모영상](https://www.youtube.com/watch?v=pH76lDisyUU&feature=youtu.be)을 통해 완성된 투두리스트의 사용 영상을 확인할 수 있습니다^^
+

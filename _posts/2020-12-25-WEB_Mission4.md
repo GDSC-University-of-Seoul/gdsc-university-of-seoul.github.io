@@ -196,7 +196,7 @@ WEB 팀의 4번째 미션은 아래의 교재로 React 공부를 하는 것입�
 
   ![todolist_2.png](../assets/images/post-WEB-Mission4/todolist_2.png)
 
-### 1. TodoTemplate.js
+#### 1) TodoTemplate.js
 
 첫 번째로 만들 컴포넌트입니다.
 

@@ -293,7 +293,7 @@ featured: false
 
 - 네트워크에 정보가 올라가므로 최소한의 데이터만 저장하는 걸 권장
 
-     ```json
+     ```javascript
      {
          "id": "1223034", // 사용자 unique id
          "exp": 21313,  // 토큰 만료기간
@@ -306,7 +306,7 @@ featured: false
 
 - 헤더와 페이로드에 시크릿키를 추가한 채 저장
 
-     ```json
+     ```javascript
      HMACSHA256(
        base64UrlEncode(header) + "." + base64UrlEncode(payload),
        ZEZE // SECRET KET

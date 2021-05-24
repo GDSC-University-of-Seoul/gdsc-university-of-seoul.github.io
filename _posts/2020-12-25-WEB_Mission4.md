@@ -487,7 +487,7 @@ function TodoList() {
 
 ![todolist_6.png](../assets/images/post-WEB-Mission4/todolist_6.png)
 
-### 5. TodoCreate.js
+#### 5) TodoCreate.js
 
 할 일 항목을 추가하는 버튼을 추가할 겁니다.
 

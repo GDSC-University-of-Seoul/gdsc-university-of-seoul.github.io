@@ -88,7 +88,7 @@ WEB 팀의 4번째 미션은 아래의 교재로 React 공부를 하는 것입�
 
     import로 불러온 styles 객체 안에 있는 값을 참조해야 합니다.
 
-3. styled-components
+### 3. styled-components
 
     styled-components는 js 안에 css(CSS in JS)를 작성할 수 있는 리액트 라이브러리입니다.
 

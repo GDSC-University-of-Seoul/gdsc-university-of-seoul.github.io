@@ -134,9 +134,9 @@ featured: false
 
    db에 해당 email이 있는지 먼저 검색 후
 
-   해싱된 password값이랑 일치 일치 되는 지 비교한다
+   해싱된 password값이랑 일치되는지 비교한다
 
-   ```java script
+   ```javascript
    // route
    userRoutes.post('/signin', asyncWrapper(userController.login));
    ```

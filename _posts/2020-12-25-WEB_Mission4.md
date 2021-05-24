@@ -8,8 +8,9 @@ description: "React"
 featured: false
 ---
 
-Web 팀의 4번째 미션은 React 아래의 교재로 리액트 공부를 하는 것입니다.
-이번 포스팅에서는 교재의 2-3장을 리뷰하겠습니다.
+WEB 팀의 4번째 미션은 아래의 교재로 React 공부를 하는 것입니다.
+
+이번 포스팅에서는 교재의 2장과 3장을 리뷰하겠습니다.
 
 > [#4 Mission : React](https://react.vlpt.us/)
 

@@ -260,7 +260,7 @@ export default App;
 
 두 번째로 만들 컴포넌트는 날짜, 요일, 남은 할 일 개수를 보여줄 겁니다.
 
-```javascript
+```react
 import React from "react";
 import styled from "styled-components";
 

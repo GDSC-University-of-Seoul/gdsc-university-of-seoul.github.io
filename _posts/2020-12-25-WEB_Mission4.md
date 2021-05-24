@@ -202,7 +202,7 @@ WEB 팀의 4번째 미션은 아래의 교재로 React 공부를 하는 것입�
 
 페이지의 중앙에 그림자가 적용된 흰색 박스. 라고 위에서 소개 드렸지만 그림자 코드를 추가해도 그림자가 안 나타나서 그림자가 적용되지 않는 흰색 박스 컴포넌트를 소개하겠습니다.^^
 
-```javascript
+```react
 import React from "react";
 import styled from "styled-components";
 

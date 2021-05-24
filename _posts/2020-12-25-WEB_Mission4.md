@@ -160,7 +160,7 @@ WEB 팀의 4번째 미션은 아래의 교재로 React 공부를 하는 것입�
 
     `createGlobalStyle`은 js파일에서 `body {}` 태그를 호출해 태그 내부에서 css 적용을 시킬 수 있습니다. 이름에서부터 알 수 있듯이 글로벌 스타일을 설정할 때 사용합니다. `createGlobalStyle`을 안 쓰고 따로 css 파일에 적용해도 똑같습니다.
 
-### App.js
+#### App.js
 
   ```javascript
       import React from "react";

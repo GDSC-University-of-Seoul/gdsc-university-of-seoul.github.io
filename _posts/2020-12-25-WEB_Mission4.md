@@ -762,7 +762,7 @@ function TodoHead() {
 export default TodoHead;
 ```
 
-### 2. TodoList.js
+#### 2) TodoList.js
 
 TodoContext.js에서 저장할 todo 두 개를 임시로 적어놨습니다.
 

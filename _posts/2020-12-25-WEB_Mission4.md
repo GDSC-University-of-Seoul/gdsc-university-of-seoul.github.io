@@ -342,7 +342,7 @@ export default App;
 
 여러 개의 할 일을 보여주는 컴포넌트를 만들겠습니다.
 
-```javascript
+```react
 import React from "react";
 import styled from "styled-components";
 

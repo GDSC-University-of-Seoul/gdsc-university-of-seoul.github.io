@@ -338,7 +338,7 @@ export default App;
 
 ![todolist_4.png](../assets/images/post-WEB-Mission4/todolist_4.png)
 
-### 3. TodoList.js
+#### 3) TodoList.js
 
 여러 개의 할 일을 보여주는 컴포넌트를 만들겠습니다.
 

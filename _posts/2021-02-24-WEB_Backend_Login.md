@@ -209,7 +209,7 @@ featured: false
 
    `jwt.sign(payload, secretKey)`에서 payload는 string 형식이어야 한다.
 
-   그러나 mongodb에서 생성되는 \_id는 정수이므로 mongodb 함수인`.toHexString()`를 통해 형변환 해줘야 한다.
+   그러나 mongoDB에서 생성되는 \_id는 정수이므로 mongoDB 함수인`.toHexString()`를 통해 형변환 해줘야 한다.
 
    생성된 토큰은 DB에 저장해야 하므로 model에 token을 추가로 만들어준다.
 

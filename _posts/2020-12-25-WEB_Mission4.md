@@ -795,7 +795,7 @@ export default TodoList;
 
 TodoContext의 state를 제대로 불러와서 렌더링 한 것을 확인할 수 있습니다.
 
-### 3. TodoItem.js
+#### 3) TodoItem.js
 
 TodoContext의 `dispatch`를 사용해 `TOGGLE`함수와 `REMOVE`함수를 사용할 수 있습니다.
 

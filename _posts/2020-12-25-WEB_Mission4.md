@@ -256,7 +256,7 @@ export default App;
 
 배경색은 유지된 채, TodoTemplate.js에서 만든 TodoTemplateBlock이 잘 적용 되었습니다.
 
-### 2. TodoHead.js
+#### 2) TodoHead.js
 
 두 번째로 만들 컴포넌트는 날짜, 요일, 남은 할 일 개수를 보여줄 겁니다.
 

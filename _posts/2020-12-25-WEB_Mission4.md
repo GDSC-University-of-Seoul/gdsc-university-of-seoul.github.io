@@ -90,7 +90,7 @@ WEB 팀의 4번째 미션은 아래의 교재로 React 공부를 하는 것입�
 
 3. styled-components
 
-    styled-components는 js 안에 css(CSS in JS)를 작성할 수 있는 리액트 라이브러리 입니다.
+    styled-components는 js 안에 css(CSS in JS)를 작성할 수 있는 리액트 라이브러리입니다.
 
     보통 react 컴포넌트를 스타일링할 때 외부 css 파일을 className으로 속성을 전달 받아서 렌더링하여 사용했는데요.
 

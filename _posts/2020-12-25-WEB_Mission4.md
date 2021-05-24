@@ -724,7 +724,7 @@ Hook은 간단히 설명하자면 class를 사용하지 않고 function에서 st
 
    앞서 만들어진 컴포넌트에 기능 구현 코드를 추가하겠습니다.
 
-### 1. TodoHead.js
+#### 1) TodoHead.js
 
 `today.toLocaleDateString` 함수로 실제 오늘 날짜를 띄웁니다.
 

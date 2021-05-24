@@ -362,7 +362,7 @@ export default TodoList;
 
 [App.js]
 
-```javascript
+```react
 ...
 import TodoList from './components/TodoList';
 ...

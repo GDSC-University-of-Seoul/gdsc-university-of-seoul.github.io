@@ -382,9 +382,9 @@ function App() {
 
 ![todolist_5.png](../assets/images/post-WEB-Mission4/todolist_5.png)
 
-### 4. TodoItem.js
+#### 4) TodoItem.js
 
-TodoList 위에 할 일의 항목을 보여 줄 컴포넌트를 만들겠습니다.
+TodoList 위에 할 일의 항목을 보여줄 컴포넌트를 만들겠습니다.
 
 ```javascript
 import React from "react";

@@ -826,7 +826,7 @@ function TodoItem({ id, done, text }) {
 ...
 ```
 
-### 4. TodoCreate.js
+#### 4) TodoCreate.js
 
 마지막으로 클라이언트가 input form에 작성하면 todolist가 렌더링 해줘 새로운 todo가 뜨게 만드는 기능을 구현해 봅시다.
 

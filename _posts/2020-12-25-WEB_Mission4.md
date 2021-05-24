@@ -233,7 +233,7 @@ export default TodoTemplate;
 
 [App.js]
 
-```javascript
+```react
 ...
 import TodoTemplate from './components/TodoTemplate';
 

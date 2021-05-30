@@ -3,7 +3,7 @@ layout: post
 title: "node.js로 회원가입부터 로그인까지"
 authors: [zeze1004]
 tags: ["WEB"]
-image: assets\images\post-WEB-Login\썸네일.png
+image: assets\images\post-WEB-Login\image1.png
 description: "일단 복붙하고 실행시키면서 이해하자"
 featured: false
 ---
@@ -268,7 +268,7 @@ featured: false
 
    Token Based Auth
 
-   ![토큰1](..\assets\images\post-WEB-Login\토큰1.png)
+   ![토큰1](..\assets\images\post-WEB-Login\image2.png)
    그림판으로 쓴 것 같지만...웹툰 작가의 꿈을 갖구 산 태블릿으로 열심히 적은 것이 반전...!
    악필은 노력해도 악필일 뿐...
 

@@ -22,116 +22,116 @@ WEB 팀의 4번째 미션은 아래의 교재로 React 공부를 하는 것입�
 
 ### 1. Sass
 
-    Sass는 CSS의 전처리기로써 웹에서 컴파일이 안되지만, CSS보다 간단한 문법을 제공합니다.
+  Sass는 CSS의 전처리기로써 웹에서 컴파일이 안되지만, CSS보다 간단한 문법을 제공합니다.
 
-    'node-sass' 라이브러리를 통해 Sass가 CSS로 변환되어 웹에서 컴파일 됩니다.
+  'node-sass' 라이브러리를 통해 Sass가 CSS로 변환되어 웹에서 컴파일 됩니다.
 
-    Sass는 CSS와 상당히 유사한 문법을 가지고 있습니다. 지금부터 소개할 몇 가지 문법은 CSS와 다른 Sass의 문법입니다.
+  Sass는 CSS와 상당히 유사한 문법을 가지고 있습니다. 지금부터 소개할 몇 가지 문법은 CSS와 다른 Sass의 문법입니다.
 
-    1. 변수 선언
+  1. 변수 선언
 
-       ```css
-       $변수명: 값;
-       ```
+      ```css
+      $변수명: 값;
+      ```
 
-       CSS는 변수명 앞에 '$'를 붙이지 않는다는 차이점이 있습니다.
-       Sass는 변수 사용 시 '$변수명;'을 사용합니다.
+      CSS는 변수명 앞에 '$'를 붙이지 않는다는 차이점이 있습니다.
+      Sass는 변수 사용 시 '$변수명;'을 사용합니다.
 
-    2. 셀렉터 선언
+  2. 셀렉터 선언
 
-       - css로 작성시
+      - css로 작성시
 
-       ```css
-       div.container h4 {
-         color: blue;
-       }
-       div.container p {
-         color: green;
-       }
-       ```
+      ```css
+      div.container h4 {
+        color: blue;
+      }
+      div.container p {
+        color: green;
+      }
+      ```
 
-       - sass로 작성시
+      - sass로 작성시
 
-       ```scss
-       div.container {
-         h4 {
-           color: blue;
-         }
-         p {
-           color: green;
-         }
-       }
-       ```
+      ```scss
+      div.container {
+        h4 {
+          color: blue;
+        }
+        p {
+          color: green;
+        }
+      }
+      ```
 
-       셀렉트는 h4, p와 같이 html 스타일 요소를 뜻합니다.
+      셀렉트는 h4, p와 같이 html 스타일 요소를 뜻합니다.
 
-       css와 달리 sass는 관련된 class 안에 셀렉터들을 선언합니다. css보다 코드가 간결해지고 셀럭터 해석이 편하다는 장점이 있습니다.
+      css와 달리 sass는 관련된 class 안에 셀렉터들을 선언합니다. css보다 코드가 간결해지고 셀럭터 해석이 편하다는 장점이 있습니다.
 
 ### 2. CSS Module
 
-    코드가 길어지면 중복되는 클래스 이름이 생길 수 있습니다. CSS Module은 클래스 이름을 고유하게 만들어 겹치지 않도록 해줍니다.
+  코드가 길어지면 중복되는 클래스 이름이 생길 수 있습니다. CSS Module은 클래스 이름을 고유하게 만들어 겹치지 않도록 해줍니다.
 
-    따로 라이브러리를 설치할 필요 없이 기존 css 파일 확장자를 .module.css로 설정하면 됩니다.
+  따로 라이브러리를 설치할 필요 없이 기존 css 파일 확장자를 .module.css로 설정하면 됩니다.
 
-    Sass에서도 사용 가능합니다. .module.scss로 바꿔주면 됩니다.
+  Sass에서도 사용 가능합니다. .module.scss로 바꿔주면 됩니다.
 
-    가령 Box.css를 Box.module.css로 바꾼 후 js 파일에 import할려면 아래와 같이 하면 됩니다.
+  가령 Box.css를 Box.module.css로 바꾼 후 js 파일에 import할려면 아래와 같이 하면 됩니다.
 
-    ```javascript
-    import React from "react";
-    import styles from "./Box.module.css";
+  ```react
+  import React from "react";
+  import styles from "./Box.module.css";
 
-    function Box() {
-      return <div className={styles.Box}>{styles.Box}</div>;
-    }
-    ```
+  function Box() {
+    return <div className={styles.Box}>{styles.Box}</div>;
+  }
+  ```
 
-    import로 불러온 styles 객체 안에 있는 값을 참조해야 합니다.
+  import로 불러온 styles 객체 안에 있는 값을 참조해야 합니다.
 
 ### 3. styled-components
 
-    styled-components는 js 안에 css(CSS in JS)를 작성할 수 있는 리액트 라이브러리입니다.
+  styled-components는 js 안에 css(CSS in JS)를 작성할 수 있는 리액트 라이브러리입니다.
 
-    보통 react 컴포넌트를 스타일링할 때 외부 css 파일을 className으로 속성을 전달 받아서 렌더링하여 사용했는데요.
+  보통 react 컴포넌트를 스타일링할 때 외부 css 파일을 className으로 속성을 전달 받아서 렌더링하여 사용했는데요.
 
-    styled-components을 사용하면 css를 컴포넌트 내부에 넣기 때문에 수정이 훨씬 쉽다는 장점이 있습니다.
+  styled-components을 사용하면 css를 컴포넌트 내부에 넣기 때문에 수정이 훨씬 쉽다는 장점이 있습니다.
 
-    `npm add styled-components` 설치해주세요.
+  `npm add styled-components` 설치해주세요.
 
-    ![blue-circle.png](../assets/images/post-WEB-Mission4/blue-circle.png)
+  ![blue-circle.png](../assets/images/post-WEB-Mission4/blue-circle.png)
 
-    styled-components를 이용하여 css 파일없이 위의 파란원을 만들어봅시다.
+  styled-components를 이용하여 css 파일없이 위의 파란원을 만들어봅시다.
 
-    [App.js]
+  [App.js]
 
-    ```javascript
-    import React from 'react';
+  ```react
+  import React from 'react';
 
-    import styled from 'styled-components';
+  import styled from 'styled-components';
 
-    const Circle = styled.div`
-        width: 5rem;
-        height: 5rem;
-        background: ${props => props.color || 'black'};
-        border-radius: 50%;
-        `;
-        <!-- ` ` <= 사용 주의! -->
+  const Circle = styled.div`
+      width: 5rem;
+      height: 5rem;
+      background: ${props => props.color || 'black'};
+      border-radius: 50%;
+      `;
+      <!-- ` ` <= 사용 주의! -->
 
-    function App() {
-    return <Circle color="blue" />;
-    }
+  function App() {
+  return <Circle color="blue" />;
+  }
 
-    export default App;
-    ```
+  export default App;
+  ```
 
-    App.js 파일의 Circle 컴포넌트에 css가 들어갔습니다.
-    이제 js파일 내에서 바로 css 수정이 가능합니다!
+  App.js 파일의 Circle 컴포넌트에 css가 들어갔습니다.
+  이제 js파일 내에서 바로 css 수정이 가능합니다!
 
-    div를 스타일링하였으므로 `styled.div`를 사용했습니다.
+  div를 스타일링하였으므로 `styled.div`를 사용했습니다.
 
-    Circle 컴포넌트에 color라는 props를 넣어 색깔도 변경 가능합니다.
+  Circle 컴포넌트에 color라는 props를 넣어 색깔도 변경 가능합니다.
 
-    `props: <컴포넌트이름: props이름 = "값">`
+  `props: <컴포넌트이름: props이름 = "값">`
 
 ## [3장] 멋진 투두리스트 만들기
 
@@ -145,24 +145,24 @@ WEB 팀의 4번째 미션은 아래의 교재로 React 공부를 하는 것입�
 
 ### 1. 컴포넌트 만들기
 
-    `create-react-app`을 사용해 새로운 프로젝트를 만든 후
-    `npm add styled-components` 설치해주세요.
+  `create-react-app`을 사용해 새로운 프로젝트를 만든 후
+  `npm add styled-components` 설치해주세요.
 
-    만들어야 할 컴포넌트는 총 5개 입니다.
+  만들어야 할 컴포넌트는 총 5개 입니다.
 
-    1. todoTemplate: 페이지의 중앙에 그림자가 적용된 흰색 박스.
-    2. todoHead: 오늘의 날짜와 요일을 보여주고, 앞으로 해야 할 일이 몇 개 남았는지 보여줌.
-    3. todoList: todos 배열을 map() 을 사용하여 여러 개의 TodoItem 컴포넌트를 렌더링.
-    4. todoItem: 할 일의 정보를 렌더링 해주는 컴포넌트. 체크 버튼 누르면 텍스트 색상이 연해지고 텍스트에 마우스를 올리면 휴지통 아이콘이 나타남. 휴지통 아이콘 누르면 항목 삭제됨.
-    5. todoCreate: 새로운 할 일을 등록할 수 있게 해주는 컴포넌트.
+  1. todoTemplate: 페이지의 중앙에 그림자가 적용된 흰색 박스.
+  2. todoHead: 오늘의 날짜와 요일을 보여주고, 앞으로 해야 할 일이 몇 개 남았는지 보여줌.
+  3. todoList: todos 배열을 map() 을 사용하여 여러 개의 TodoItem 컴포넌트를 렌더링.
+  4. todoItem: 할 일의 정보를 렌더링 해주는 컴포넌트. 체크 버튼 누르면 텍스트 색상이 연해지고 텍스트에 마우스를 올리면 휴지통 아이콘이 나타남. 휴지통 아이콘 누르면 항목 삭제됨.
+  5. todoCreate: 새로운 할 일을 등록할 수 있게 해주는 컴포넌트.
 
-    컴포넌트를 본격적으로 만들기 전에 `createGlobalStyle`을 이용해서 `App.js`에서 화면 배경을 설정합시다.
+  컴포넌트를 본격적으로 만들기 전에 `createGlobalStyle`을 이용해서 `App.js`에서 화면 배경을 설정합시다.
 
-    `createGlobalStyle`은 js파일에서 `body {}` 태그를 호출해 태그 내부에서 css 적용을 시킬 수 있습니다. 이름에서부터 알 수 있듯이 글로벌 스타일을 설정할 때 사용합니다. `createGlobalStyle`을 안 쓰고 따로 css 파일에 적용해도 똑같습니다.
+  `createGlobalStyle`은 js파일에서 `body {}` 태그를 호출해 태그 내부에서 css 적용을 시킬 수 있습니다. 이름에서부터 알 수 있듯이 글로벌 스타일을 설정할 때 사용합니다. `createGlobalStyle`을 안 쓰고 따로 css 파일에 적용해도 똑같습니다.
 
 #### App.js
 
-  ```javascript
+  ```react
       import React from "react";
       import { createGlobalStyle } from "styled-components";
 
@@ -314,7 +314,7 @@ TodoHead.js 코드를 작성한 후 TodoHead.js와 마찬가지로 App.js에 파
 
 [App.js]
 
-```javascript
+```react
 ...
 import TodoHead from './components/TodoHead';
 
@@ -386,7 +386,7 @@ function App() {
 
 TodoList 위에 할 일의 항목을 보여줄 컴포넌트를 만들겠습니다.
 
-```javascript
+```react
 import React from "react";
 import styled, { css } from "styled-components";
 import { MdDone, MdDelete } from "react-icons/md";
@@ -470,7 +470,7 @@ TodoItem은 TodoList에서 렌더링 됩니다. 따라서 App.js 호출하지 �
 
 [TodoList.js]
 
-```javascript
+```react
 ...
 import TodoItem from './TodoItem';
 ...
@@ -495,7 +495,7 @@ function TodoList() {
 
 `CircleButton`을 통해 버튼을 누르면 버튼의 색깔이 바뀌는 등의 이벤트가 발생합니다.
 
-```javascript
+```react
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { MdAdd } from "react-icons/md";
@@ -651,7 +651,7 @@ Hook은 간단히 설명하자면 class를 사용하지 않고 function에서 st
 
    [TodoContext.js]
 
-   ```javascript
+   ```react
    import React, { useReducer, createContext, useContext, useRef } from "react";
 
    // TODO 저장
@@ -730,7 +730,7 @@ Hook은 간단히 설명하자면 class를 사용하지 않고 function에서 st
 
 to do list의 헤드의 날짜가 오늘 날짜로 바뀌는 것을 확인할 수 있습니다.
 
-```javascript
+```react
 ...
 import { useTodoState } from '../TodoContext';
 ...
@@ -768,7 +768,7 @@ TodoContext.js에서 저장할 todo 두 개를 임시로 적어놨습니다.
 
 TodoList는 TodoContext의 `initialTodos`의 state를 `map` 함수 받아올 것입니다.
 
-```javascript
+```react
 ...
 import { useTodoState } from '../TodoContext';
 ...
@@ -801,7 +801,7 @@ TodoContext의 `dispatch`를 사용해 `TOGGLE`함수와 `REMOVE`함수를 사�
 
 글을 삭제 시 TodoHead에서 TodoContext의 `useTodoState`함수를 이용해 아직 완수 되지 않은 todo의 개수를 바로 반영합니다.
 
-```javascript
+```react
 ...
 import { useTodoDispatch } from '../TodoContext';
 ...
@@ -830,7 +830,7 @@ function TodoItem({ id, done, text }) {
 
 마지막으로 클라이언트가 input form에 작성하면 todolist가 렌더링 해줘 새로운 todo가 뜨게 만드는 기능을 구현해 봅시다.
 
-```javascript
+```react
 ...
 import { useTodoDispatch, useTodoNextId } from '../TodoContext';
 ...

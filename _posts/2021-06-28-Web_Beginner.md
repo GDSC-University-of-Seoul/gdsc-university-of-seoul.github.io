@@ -21,7 +21,7 @@ featured: false
 
 ## 배운 내용 적용 (mobile youtube)
 
-![youtube_mobile](assets/images/post-Web-Beginner/clonecoding_myoutube.PNG)
+![youtube_mobile](../assets/images/post-Web-Beginner/clonecoding_myoutube.PNG)
 
 ### 1. css에서 flex box 사용해보기
 
@@ -92,7 +92,7 @@ nev{
 `padding`과 `margin`을 최대한 활용하였습니다.
 
 ```css
-// 전체 패딩을 0으로
+// 전체 마진을 '0'으로
 body{
     margin:0;
     box-sizing: border-box;
@@ -155,8 +155,8 @@ a{
 
 ## 배운 내용 적용 (Bmax)
 
-![bmax_mobile](assets/images/post-Web-Beginner/clonecoding_mbmax.PNG)
-![bmax_pc](assets/images/post-Web-Beginner/clonecoding_pcbmax.PNG)
+![bmax_mobile](../assets/images/post-Web-Beginner/clonecoding_mbmax.PNG)
+![bmax_pc](../assets/images/post-Web-Beginner/clonecoding_pcbmax.PNG)
 
 ### 3. css에서 position 사용하기
 
@@ -217,7 +217,7 @@ nev .menu li{
 }
     
 nev button{
-    display: none; // 모바일 버전 버튼 pc 상에서 감추기
+    display: none; /* 모바일 버전 버튼 pc 상에서 감추기 */
 }
 
 // mobile 메뉴바
@@ -236,7 +236,7 @@ nev button{
         top: 20px;
     }
 
-    nev button{ // 모바일 버전 버튼 나타내기
+    nev button{ /* 모바일 버전 버튼 나타내기 */
         display:inline ; 
         background-color: var(--lightblue_color);
         border: none;

@@ -278,12 +278,11 @@ sejkimm:
   github: sejkimm
   role: normal
   web:
-  
-EGGHEADIARY:
+eggheadiary:
  name: 서보미
  display_name: 보미
  email: eggheadiary@gmail.com
- github : EGGHEAD
+ github : eggheadiary
  role: normal
  web:
  

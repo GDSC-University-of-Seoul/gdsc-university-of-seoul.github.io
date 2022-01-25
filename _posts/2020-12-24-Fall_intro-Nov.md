@@ -6,6 +6,7 @@ tags: ["Fall intro"]
 image: https://user-images.githubusercontent.com/72259053/116891473-b4cfe880-ac69-11eb-8d6b-3133a310be6e.png
 description: "과제 4, 5 & 강의 듣기"
 featured: false
+use_math: true
 ---
 
 

@@ -83,14 +83,17 @@ Small Network 과 Distillation의 성능이 비슷해보이지만, 학습의 안
 
 추가 실험이 필요해보입니다. 
 
+
 |Model | Accurarcy |
-| ------ | ------ |
+| -- | -- |
 | Small Network | 85%|
 | Big Network | 90% |
 | Distillation | 85%|
+
 ### Parameter
+
 |Model | Parameter|
-| ------ | ------ |
+| -- | -- |
 | Small Network | 770,378|
 | Big Network | 3844938|
 | Distillation | 770,378|

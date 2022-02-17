@@ -166,7 +166,7 @@ Feature들은 다음과 같이 분류됩니다.
 
 ### 2019년
 
-![image](<../assets/images/post-Youtube-Algorithm/Ranking_architecture(2019).png>)
+![image](../assets/images/post-Youtube-Algorithm/Ranking_architecture(2019).png)
 
 2019년 논문은 랭킹 모델에 대해 중점적으로 설명하고 있습니다.
 
@@ -184,7 +184,7 @@ Wide & Deep은 넓은 선형 모델과 딥러닝 모델을 결합한 형태입�
 1. 어떤 것을 최적화할지 잘 조정해야 한다.
 2. feedback loop에 빠지지 않도록 selection bias를 효율적으로 제거해야 한다.
 
-![image](<../assets/images/post-Youtube-Algorithm/MMoE(Paper).png>)
+![image](../assets/images/post-Youtube-Algorithm/MMoE(Paper).png)
 
 먼저 1번 과제의 경우 MMoE 구조를 통해 해결하고자 하였습니다.
 즉, 다음에 어떤 영상을 볼지를 예측하는 것도 중요하지만 그 영상을 얼마나 시청할지, 좋아할지 등 objective를 분리시키는 것이 중요합니다.

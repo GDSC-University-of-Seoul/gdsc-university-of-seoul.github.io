@@ -1076,3 +1076,36 @@ img + em {
     font-size: .8rem;
     color: #888888;
 }
+
+.special-container{
+    width: 100%;
+    height: 100vh;
+}
+
+.special-container .special-list{
+    display: flex;
+    flex-direction: row;
+}
+
+.special-card{
+    position: relative;
+    display: block;
+    -webkit-box-flex: 0;
+    flex: none;
+    width: 180px;
+    height: 245px;
+    margin: 0 8px;
+    border-radius: 10px;
+    overflow: hidden;
+    transform: translateZ(1px);
+
+    box-sizing: border-box;
+}
+
+.special-image{
+    object-fit: cover;
+}
+
+.special-text{
+    position: absolute;
+}

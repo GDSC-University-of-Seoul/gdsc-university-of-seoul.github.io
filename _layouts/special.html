@@ -1,3 +1,51 @@
 ---
 layout: default
 ---
+<body>
+    <div class = "special-container">
+        <div class='section-title'>
+            <h2>
+                <span class='active'>후원 페이지</span>
+                <span class='deactive'>후원 목록</span>
+            </h2>
+        </div>
+        <div class = "row listrecent">
+            {% assign authors = site.data.special | where: 'special', 'true' %}
+                {% for author in authors %}
+                    {% include specialcard.html %}
+                {% endfor %}
+        </div>
+
+        <div class='article-post'>
+            {{content}}
+        </div>
+    </div>
+</body>
+
+
+<script>
+    /* Slide */
+    const tabs = {
+        about: document.querySelector('.section-title .active'),
+        alumni: document.querySelector('.section-title .deactive')
+    }
+    const infoContainer = document.querySelector('.member-alumni-container');
+    const memberContainer = document.querySelector('.member-info-container');
+    const alumniContainer = document.querySelector('.alumni-info-container');
+    tabs.about.addEventListener('click', (e) => {
+        tabs.about.classList.add('active');
+        tabs.alumni.classList.remove('active');
+        memberContainer.classList.add('slide-right');
+        alumniContainer.classList.add('slide-right');
+        memberContainer.classList.remove('slide-left');
+        alumniContainer.classList.remove('slide-left');
+    });
+    tabs.alumni.addEventListener('click', (e) => {
+        tabs.about.classList.remove('active');
+        tabs.alumni.classList.add('active');
+        memberContainer.classList.remove('slide-right');
+        alumniContainer.classList.remove('slide-right');
+        memberContainer.classList.add('slide-left');
+        alumniContainer.classList.add('slide-left');
+    });
+</script>

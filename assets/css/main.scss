@@ -5,7 +5,29 @@
 
 /* We need to add display:inline in order to align the '>>' of the 'read more' link */
 .post-excerpt p {
-	display:inline;
+  display: inline;
+}
+
+/* 테이블 스타일 */
+table {
+  margin: 10px 0 5px;
+  thead {
+    border-bottom: 2px solid gray;
+    tr {
+      background-color: #f1c040;
+      color: #ffffff;
+      text-align: left;
+    }
+  }
+  tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  th {
+    padding: 12px 15px;
+  }
+  td {
+    padding: 12px 8px;
+  }
 }
 
 // Import partials from `sass_dir` (defaults to `_sass`)
